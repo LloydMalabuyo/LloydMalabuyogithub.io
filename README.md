@@ -4,72 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOYD's Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f5;
-            color: #333;
+            background-image: url('assets/images/background.gif'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            font-family: Arial, sans-serif; 
+            color: #fff; 
         }
-        
+
         header {
-            background: #007DB8;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: rgba(0, 123, 255, 0.8); 
+            padding: 80px 0; 
         }
-        
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
+
+        .activity-card {
+            background-size: cover;
+            background-position: center;
+            height: 200px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: white; 
         }
-        
-        .project-section {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            text-align: center;
+
+        .activity-card:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
         }
-        
-        .btn-project {
-            margin: 10px;
-            padding: 15px 30px;
-            font-size: 1.2em;
+
+        .card-body {
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 15px;
         }
-        
+
         footer {
-            text-align: center;
-            padding: 20px;
-            background: #007DB8;
-            color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            background-color: #007bff; 
+            color: white; 
+            padding: 20px 0; 
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>LOYD's Portfolio</h1>
-        <p>Showcasing My Projects and Activities</p>
+    <header class="text-center p-5">
+        <h1 class="display-4">LOYD's Portfolio</h1>
+        <p class="lead">Explore my Activities</p>
     </header>
 
-    <div class="project-section">
-        <h2>Projects</h2>
-        <a href="Activity4.html" class="btn btn-primary btn-project">Activity 4</a>
-        <a href="Activity5.html" class="btn btn-primary btn-project">Activity 5</a>
-        <a href="Activity6.html" class="btn btn-primary btn-project">Activity 6</a>
-        <a href="Activity7.html" class="btn btn-primary btn-project">Activity 7</a>
-        <a href="Activity8.html" class="btn btn-primary btn-project">Activity 8</a>
-    </div>
+    <main class="container mt-5">
+        <h2 class="text-center mb-4">Activities</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card activity-card" style="background-image: url('assets/images/Activity 4.jpg');">
+                    <div class="card-body">
+                        <h5 class="card-title">Activity 4</h5>
+                        <a href="Activity 4/Activity4.html" class="btn btn-light">View Activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card activity-card" style="background-image: url('assets/images/Activity 5.jpg');">
+                    <div class="card-body">
+                        <h5 class="card-title">Activity 5</h5>
+                        <a href="Activity 5/index.html" class="btn btn-light">View Activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card activity-card" style="background-image: url('assets/images/Activity 6.jpg');">
+                    <div class="card-body">
+                        <h5 class="card-title">Activity 6</h5>
+                        <a href="Activity 6/Activity6.html" class="btn btn-light">View Activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card activity-card" style="background-image: url('assets/images/Activity 7.jpg');">
+                    <div class="card-body">
+                        <h5 class="card-title">Activity 7</h5>
+                        <a href="Activity 7/Activity7.html" class="btn btn-light">View Activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card activity-card" style="background-image: url('assets/images/Activity 8.jpg');">
+                    <div class="card-body">
+                        <h5 class="card-title">Activity 8</h5>
+                        <a href="Activity 8/Activity8.html" class="btn btn-light">View Activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card activity-card" style="background-image: url('assets/images/Activity 9.jpg');">
+                    <div class="card-body">
+                        <h5 class="card-title">Activity 9</h5>
+                        <a href="Activity 9/Activity9.html" class="btn btn-light">View Activity</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    <footer>
+    <footer class="text-center mt-5 p-4">
         <p>&copy; 2024 LOYD's Portfolio. All rights reserved.</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
