@@ -63,7 +63,7 @@
         .mb-4 {
             margin-bottom: 1.5rem;
         }
-        
+
         .row {
             display: flex;
             flex-wrap: wrap;
@@ -89,6 +89,48 @@
                 max-width: 100%;
             }
         }
+
+        /* Pop-up styles */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .popup h3 {
+            margin-top: 0;
+        }
+
+        .popup-close {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right;
+            border-radius: 50%;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -96,7 +138,7 @@
         <h1 class="text-center">LOYD's Portfolio</h1>
         <p class="text-center">Explore my Activities</p>
     </header>
-    
+
     <main class="container mt-5">
         <h2 class="text-center mb-4">Activities</h2>
         <div class="row">
@@ -112,7 +154,7 @@
                 <div class="card activity-card" style="background-image: url('assets/images/Activity 5.jpg');">
                     <div class="card-body">
                         <h5 class="card-title">Activity 5</h5>
-                        <a href="Activity 5/index.html" class="btn btn-light">View Activity</a>
+                        <button class="btn btn-light" onclick="openPopup()">View Activity</button>
                     </div>
                 </div>
             </div>
@@ -154,6 +196,26 @@
     <footer class="text-center mt-5 p-4">
         <p>&copy; 2024 LOYD's Portfolio. All rights reserved.</p>
     </footer>
+
+    <!-- Pop-up Elements -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="popup" id="popup">
+        <button class="popup-close" onclick="closePopup()">×</button>
+        <h3>Activity 5</h3>
+        <p>Details about Activity 5 can go here. You can add descriptions, images, or links as needed.</p>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popupOverlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
