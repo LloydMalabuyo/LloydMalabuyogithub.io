@@ -3,14 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const scrollToTopButton = document.getElementById("scrollToTop");
     const preloader = document.getElementById("preloader");
     
-    // Load theme from local storage
+   
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
         document.body.classList.toggle("dark-mode", savedTheme === "dark");
         switchThemeButton.textContent = savedTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
     }
 
-    // Switch theme
+   
     switchThemeButton.addEventListener("click", function () {
         document.body.classList.toggle("dark-mode");
         const isDarkMode = document.body.classList.contains("dark-mode");
@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("theme", isDarkMode ? "dark" : "light");
     });
 
-    // Preloader
+    
     setTimeout(() => {
         preloader.classList.add("hidden");
-    }, 1000); // Adjust the timeout duration as needed
-
-    // Smooth Scrolling
+    }, 1000); 
+    
+   
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Scroll to Top Button
+    
     window.addEventListener("scroll", function () {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             scrollToTopButton.style.display = "block";
