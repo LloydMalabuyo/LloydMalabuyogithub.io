@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dragon Ball Evolutions Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="body" data-bs-theme="light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dragon Ball Evolutions</a>
+      <button class="btn btn-outline-secondary" onclick="changeMode()" type="button">Toggle Mode</button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="header-bg text-center text-white">
+    <div class="container">
+      <h1 class="display-3 mt-5">Welcome to the Dragon Ball Evolutions Gallery</h1>
+      <p class="lead">Explore the incredible transformations of your favorite Dragon Ball characters.</p>
+    </div>
+  </header>
+
+  <div class="container mt-5">
+    <div class="d-flex justify-content-center mb-4">
+      <button class="btn btn-primary mx-2" onclick="showEvolution('goku')">Goku</button>
+      <button class="btn btn-primary mx-2" onclick="showEvolution('vegeta')">Vegeta</button>
+      <button class="btn btn-primary mx-2" onclick="showEvolution('gohan')">Gohan</button>
+      <button class="btn btn-primary mx-2" onclick="showEvolution('frieza')">Frieza</button>
+    </div>
+
+    <div class="row" id="cardContainer">
+      <!-- Character evolution cards will be dynamically inserted here -->
+    </div>
+
+    <button class="btn btn-secondary mt-4" type="button" data-bs-toggle="collapse" data-bs-target="#footer" aria-expanded="false" aria-controls="footer">
+      Toggle Footer
+    </button>
+
+    <div class="container-fluid mt-5 collapse" id="footer">
+      <div class="row">
+        <div class="col p-5 bg-success text-white">
+          <h1 class="display-4 text-center">Thank You for Visiting!</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script>
+    // Character data with evolutions and unique facts
+    const characters = {
+      goku: {
+        name: "Goku",
+        evolutions: [
+          { title: "Base Form", img: "assets/goku.jpg", desc: "Goku's base form showcases his Saiyan heritage. He possesses immense strength and agility." },
+          { title: "Super Saiyan", img: "assets/goku_super_saiyan.jpg", desc: "In this form, Goku's power multiplies significantly. His hair turns golden and his aura becomes fierce." },
+          { title: "Super Saiyan God", img: "assets/goku_super_saiyan_god.jpg", desc: "This transformation requires a ritual with other Saiyans. Goku's power level increases dramatically, allowing him to face gods." },
+          { title: "Ultra Instinct", img: "assets/goku_ultra_instinct.jpg", desc: "Ultra Instinct is a state of heightened reflexes and awareness. Goku can instinctively dodge attacks without thinking." }
+        ]
+      },
+      vegeta: {
+        name: "Vegeta",
+        evolutions: [
+          { title: "Base Form", img: "assets/vegeta.jpg", desc: "Vegeta's base form is a testament to his royal Saiyan blood, exhibiting natural combat skills and determination." },
+          { title: "Super Saiyan", img: "assets/vegeta_super_saiyan.jpg", desc: "When Vegeta becomes a Super Saiyan, his pride fuels his power. His hair turns golden, symbolizing his transformation." },
+          { title: "Super Saiyan God", img: "assets/vegeta_super_saiyan_god.jpg", desc: "Vegeta attains this form through intense training, enabling him to stand against powerful opponents." },
+          { title: "Ultra Ego", img: "assets/vegeta_ultra_ego.jpg", desc: "This transformation amplifies Vegeta's aggression and strength, allowing him to overpower enemies through sheer will." }
+        ]
+      },
+      gohan: {
+        name: "Gohan",
+        evolutions: [
+          { title: "Base Form", img: "assets/gohan.jpg", desc: "Gohan's base form is characterized by his intelligence and potential as a Saiyan warrior." },
+          { title: "Super Saiyan", img: "assets/gohan_super_saiyan.jpg", desc: "Gohan's transformation into a Super Saiyan unlocks his latent power, allowing him to fight fiercely." },
+          { title: "Beast Form", img: "assets/gohan_beast.jpg", desc: "Gohan's Beast Form signifies his ultimate power, which he unlocks through intense training and emotional resilience." },
+          { title: "Mystic Gohan", img: "assets/gohan_mystic.jpg", desc: "This form represents Gohan's full potential, enhanced by the Elder Kai's unlocking technique, giving him immense power without transforming." }
+        ]
+      },
+      frieza: {
+        name: "Frieza",
+        evolutions: [
+          { title: "First Form", img: "assets/frieza_first_form.jpg", desc: "Frieza's first form is deceptively weak in appearance but holds tremendous power. He relies on cunning and strategy." },
+          { title: "Second Form", img: "assets/frieza_second_form.jpg", desc: "In his second form, Frieza becomes taller and more muscular, showcasing greater strength and speed." },
+          { title: "Final Form", img: "assets/frieza_final_form.jpg", desc: "Frieza's final form is sleek and compact, allowing him to unleash devastating power while maintaining agility." },
+          { title: "Golden Frieza", img: "assets/frieza_golden.jpg", desc: "This transformation amplifies Frieza's power to unprecedented levels, making him one of the most dangerous foes in the universe." }
+        ]
+      },
+    };
+
+    // Show evolutions for the selected character
+    function showEvolution(characterKey) {
+      const myContainer = document.getElementById("cardContainer");
+      myContainer.innerHTML = ""; // Clear previous cards
+
+      const evolutions = characters[characterKey].evolutions;
+      for (let i = 0; i < evolutions.length; i++) {
+        myContainer.innerHTML += `
+          <div class="col-xl-3 col-md-4 col-sm-6 col-12">
+            <div class="card my-3 shadow-sm">
+              <img src="${evolutions[i].img}" class="card-img-top" alt="${evolutions[i].title}">
+              <div class="card-body">
+                <h5 class="card-title">${evolutions[i].title}</h5>
+                <p class="card-text">${evolutions[i].desc}</p>
+              </div>
+            </div>
+          </div>`;
+      }
+    }
+
+    // Dark/Light mode toggle
+    function changeMode() {
+      const bodyElement = document.getElementById("body");
+      const currentTheme = bodyElement.getAttribute("data-bs-theme");
+      bodyElement.setAttribute("data-bs-theme", currentTheme === "light" ? "dark" : "light");
+    }
+  </script>
+</body>
+
+</html>

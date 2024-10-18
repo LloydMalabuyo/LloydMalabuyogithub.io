@@ -1,0 +1,32 @@
+body[data-bs-theme="dark"] {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  body[data-bs-theme="light"] {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .navbar {
+    transition: background-color 0.5s ease;
+  }
+  
+  .header-bg {
+    background: url('assets/header_background.gif') no-repeat center center; /* Replace with your GIF path */
+    background-size: cover;
+    height: 300px; /* Adjust height as necessary */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .card {
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
