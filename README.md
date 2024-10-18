@@ -27,6 +27,7 @@
             flex-direction: column;
             justify-content: flex-end;
             color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .activity-card:hover {
@@ -44,14 +45,58 @@
             color: white;
             padding: 20px 0;
         }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-5 {
+            margin-top: 3rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .col-md-4 {
+            flex: 0 0 31%;
+            max-width: 31%;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .col-md-4 {
+                flex: 0 0 48%;
+                max-width: 48%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .col-md-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1 class="text-center">LOYD's Portfolio</h1>
-        <h2 class="text-center">Explore my Activities</h2>
+        <p class="text-center">Explore my Activities</p>
     </header>
-
+    
     <main class="container mt-5">
         <h2 class="text-center mb-4">Activities</h2>
         <div class="row">
