@@ -13,12 +13,10 @@
             font-family: Arial, sans-serif;
             color: #fff;
         }
-
         header {
             background-color: rgba(0, 123, 255, 0.8);
             padding: 80px 0;
         }
-
         .activity-card {
             background-size: cover;
             background-position: center;
@@ -29,67 +27,55 @@
             color: white;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
         .activity-card:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
-
         .card-body {
             background-color: rgba(0, 0, 0, 0.5);
             padding: 15px;
         }
-
         footer {
             background-color: #007bff;
             color: white;
             padding: 20px 0;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-
         .text-center {
             text-align: center;
         }
-
         .mt-5 {
             margin-top: 3rem;
         }
-
         .mb-4 {
             margin-bottom: 1.5rem;
         }
-
         .row {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
         }
-
         .col-md-4 {
             flex: 0 0 31%;
             max-width: 31%;
             margin-bottom: 20px;
         }
-
         @media (max-width: 768px) {
             .col-md-4 {
                 flex: 0 0 48%;
                 max-width: 48%;
             }
         }
-
         @media (max-width: 576px) {
             .col-md-4 {
                 flex: 0 0 100%;
                 max-width: 100%;
             }
         }
-
         /* Pop-up styles */
         .popup {
             position: fixed;
@@ -106,11 +92,9 @@
             z-index: 1000;
             padding: 20px;
         }
-
         .popup h3 {
             margin-top: 0;
         }
-
         .popup-close {
             background-color: red;
             color: white;
@@ -120,7 +104,6 @@
             float: right;
             border-radius: 50%;
         }
-
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -135,10 +118,8 @@
 </head>
 <body>
     <header>
-        <h1 class="text-center">LOYD's Portfolio</h1>
-        <p class="text-center">Explore my Activities</p>
+        <h1 class="text-center">Explore my Activities</h1>
     </header>
-
     <main class="container mt-5">
         <h2 class="text-center mb-4">Activities</h2>
         <div class="row">
@@ -192,12 +173,11 @@
             </div>
         </div>
     </main>
-
     <footer class="text-center mt-5 p-4">
         <p>&copy; 2024 LOYD's Portfolio. All rights reserved.</p>
     </footer>
 
-    <!-- Pop-up Elements -->
+    
     <div class="popup-overlay" id="popupOverlay"></div>
     <div class="popup" id="popup">
         <button class="popup-close" onclick="closePopup()">×</button>
