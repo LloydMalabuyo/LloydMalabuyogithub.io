@@ -1,0 +1,53 @@
+document.getElementById('search-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const searchInput = document.getElementById('search-input').value.toLowerCase();
+    const resultsContainer = document.getElementById('character-results');
+
+    // Clear previous results
+    resultsContainer.innerHTML = '';
+
+    // Check if search input is empty
+    if (searchInput === '') {
+        resultsContainer.innerHTML = '<p class="text-warning">Please enter a name to search for characters.</p>';
+        return;
+    }
+
+    // Perform the search with the input
+    searchCharacter(searchInput);
+});
+
+// Function to handle character search
+function searchCharacter(query) {
+    fetch(`https://dragonball-api.com/api/characters?name=${query}`)
+        .then(response => response.json())
+        .then(data => {
+            const resultsContainer = document.getElementById('character-results');
+            // If no results, show a message
+            if (data.length === 0) {
+                resultsContainer.innerHTML = '<p class="text-danger">No characters found.</p>';
+                return;
+            }
+
+            // Display the search results
+            data.forEach(character => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-4', 'character-card');
+                card.innerHTML = `
+                    <div class="card">
+                        <img src="${character.image}" class="card-img-top" alt="${character.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${character.name}</h5>
+                            <p class="card-text">${character.description}</p>
+                            <a href="view.html?id=${character.id}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                `;
+                resultsContainer.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            resultsContainer.innerHTML = '<p class="text-danger">An error occurred while searching. Please try again later.</p>';
+        });
+}
