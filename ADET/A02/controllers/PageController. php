@@ -1,0 +1,18 @@
+<?php
+require_once 'models/PageModel.php';
+
+class PageController {
+    private $model;
+
+    public function __construct() {
+        $this->model = new PageModel();
+    }
+
+    public function render($page) {
+        $content = $this->model->getPage($page);
+        include 'views/header.php';
+        include $content;
+        include 'views/footer.php';
+    }
+}
+?>
